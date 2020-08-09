@@ -2,6 +2,8 @@ function strength = S_o(material)
 
 table = readtable("S_o.xlsx");
 
-strength = table.S_o(material,:);
+idx = strncmp(material, table.Material, 8);   
+
+strength = table.S_o(idx);
 
 end
