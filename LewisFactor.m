@@ -1,6 +1,14 @@
-function y = LewisFactor(numofteeth)
+function y = LewisFactor(numofteeth, profile)
 
 table = readtable("Lewis_factor_table.xlsx");
+
+if profile == 1
+    table = removevars(table, {'Full_Depth_20', 'Stub_20'});
+elseif profile == 2
+    table = removevars(table, {'Full_Depth_14', 'Stub_20'});
+elseif profile == 3
+    table = removevars(table, {'Full_Depth_14', 'Full_Depth_20'});
+end
 
 idx = ismember(table.Numofteeth, numofteeth);
 
