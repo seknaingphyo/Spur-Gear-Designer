@@ -2,11 +2,11 @@ function y = LewisFactor(numofteeth, profile)
 
 table = readtable("Lewis_factor_table.xlsx");
 
-if profile == 1
+if strncmp('Involute 14.5', profile, 13) == 1
     table = removevars(table, {'Full_Depth_20', 'Stub_20'});
-elseif profile == 2
+elseif strncmp('Full Depth 20', profile, 13) == 1
     table = removevars(table, {'Full_Depth_14', 'Stub_20'});
-elseif profile == 3
+elseif strncmp('Stub 20', profile, 7) == 1
     table = removevars(table, {'Full_Depth_14', 'Full_Depth_20'});
 end
 
