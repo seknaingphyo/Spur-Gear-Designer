@@ -34,6 +34,4 @@ end
        continue
    end
 
-disp(true_module);
-
 end
