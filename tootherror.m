@@ -1,4 +1,4 @@
-function e = tootherror(speed)
+function e_p = tootherror(speed)
 
 table = readtable('Tootherror.xlsx');
 
