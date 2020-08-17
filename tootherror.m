@@ -9,7 +9,11 @@ if isempty(find(equal > 0, 1)) ~= 1
 elseif isempty(find(equal > 0, 1)) == 1
     m1 = min(data.Module(data.Module > true_module));
     m2 = max(data.Module(data.Module < true_module));
-    e1 = 
+    equal1 = ismember(data.Module, m1);
+    equal2 = ismember(data.Module, m2);
+    e1 = table2array(data(equal1, max(data(e_max > equal(:, 2:4)))));
+    e2 = table2array(data(equal2, max(data(e_max > equal(:, 2:4)))));
+    e = interp1([e1 e2], true_module);
 end
     
 
@@ -27,7 +31,7 @@ elseif isempty(find(idx > 0, 1)) == 1
     idx2 = ismember(table.Speed, speed2);
     e_max = interp1([speed1 speed2],...
         [table2array(table(idx1, 2)) table2array(table(idx2, 2))],...
-        speed, 'linear', 'extrap');
+        speed, 'linear');
 end
 
 end
