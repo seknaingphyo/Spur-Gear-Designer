@@ -1,18 +1,18 @@
-function e = tootherror(true_module)
+function e = tootherror(true_module, speed)
 
 e_max = maxtootherror(speed);
 data = readtable('tootherrorvsmodule.xlsx');
 equal = ismember(data.Module, true_module);
 
 if isempty(find(equal > 0, 1)) ~= 1
-    e = table2array(data(equal, max(data(e_max > equal(:, 2:4)))));
+    e = max(e_max > table2array(data(equal, 2:4)));
 elseif isempty(find(equal > 0, 1)) == 1
     m1 = min(data.Module(data.Module > true_module));
     m2 = max(data.Module(data.Module < true_module));
     equal1 = ismember(data.Module, m1);
     equal2 = ismember(data.Module, m2);
-    e1 = table2array(data(equal1, max(data(e_max > equal(:, 2:4)))));
-    e2 = table2array(data(equal2, max(data(e_max > equal(:, 2:4)))));
+    e1 = table2array(data(equal1, max(data(e_max > data(equal, 2:4)))));
+    e2 = table2array(data(equal2, max(data(e_max > data(equal, 2:4)))));
     e = interp1([e1 e2], true_module);
 end
     
