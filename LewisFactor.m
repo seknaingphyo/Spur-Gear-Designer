@@ -1,6 +1,7 @@
 function y = LewisFactor(numofteeth, profile)
 
-table = readtable("Lewis_factor_table.xlsx");
+filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer\Data Files\Lewis_factor_table.xlsx';
+table = readtable(filename);
 
 if strncmp('Involute 14.5', profile, 13) == 1
     table = removevars(table, {'Full_Depth_20', 'Stub_20'});
