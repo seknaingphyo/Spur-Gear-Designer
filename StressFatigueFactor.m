@@ -1,12 +1,12 @@
 function K = StressFatigueFactor(material1, material2, BHN1, BHN2, profile)
 
 BHN_avg = (BHN1+BHN2)/2;
-Steel1 = strncmp(material1, 'Steel', 5);
-Steel2 = strncmp(material2, 'Steel', 5);
-Cast_Iron1 = strncmp(material1, 'Cast Iron', 9);
-Cast_Iron2 = strncmp(material2, 'Cast Iron', 9);
-profile14 = strncmp(profile, 'Involute 14.5', 13);
-profile20 = strncmp(profile, 'Full Depth 20', 13) | strncmp(profile, 'Stub 20', 7);
+Steel1 = strcmp(material1, 'Steel');
+Steel2 = strcmp(material2, 'Steel');
+Cast_Iron1 = strcmp(material1, 'Cast Iron');
+Cast_Iron2 = strcmp(material2, 'Cast Iron');
+profile14 = strcmp(profile, 'Involute 14.5');
+profile20 = strcmp(profile, 'Full Depth 20') | strcmp(profile, 'Stub 20');
 
 filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer\Data Files\Stress Fatigue Factor.xlsx';
 
