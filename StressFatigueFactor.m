@@ -12,10 +12,10 @@ filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer
 
 if Steel1 == 1 && Steel2 == 1 && profile14 == 1
     table = readtable(filename, 'Sheet', 1);
-    interp1(table.Average_BHN_steel, table.K_14, BHN_avg);
+    K = interp1(table.Average_BHN_steel, table.K_14, BHN_avg);
 elseif Steel1 == 1 && Steel2 == 1 && profile20 == 1
     table = readtable(filename, 'Sheet', 1);
-    interp1(table.Average_BHN_steel, table.K_20, BHN_avg);
+    K = interp1(table.Average_BHN_steel, table.K_20, BHN_avg);
 elseif Cast_Iron1 == 1 && Cast_Iron2 == 1 && profile14 == 1
     table = readtable(filename, 'Sheet', 3);
     K = table.K_14;
