@@ -1,10 +1,10 @@
-function [true_module, dia, face_width] = dynamiccheck(face_width, true_module, dia, speed, C, K, Q)
+function [true_module, dia, face_width] = dynamiccheck(face_width, true_module, dia, speed, C, K, Q, strength, y, M_t)
 
 F_end = strength*10^6*face_width*y*pi*true_module*10^-3;
 
 F_t = M_t/(dia/2);
 
-F_dynamic = F_t + ((21*speed*(face_width*C) + F_t)/(21*V + sqrt(face_width*C + F_t)));
+F_dynamic = F_t + ((21*speed*(face_width*C) + F_t)/(21*speed + sqrt(face_width*C + F_t)));
 
 F_wear = dia*face_width*K*Q;
                 
