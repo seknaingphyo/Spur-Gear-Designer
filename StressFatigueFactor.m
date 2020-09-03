@@ -8,7 +8,7 @@ Cast_Iron2 = strcmp(material2, 'Cast Iron');
 profile14 = strcmp(profile, 'Involute 14.5');
 profile20 = strcmp(profile, 'Full Depth 20') | strcmp(profile, 'Stub 20');
 
-filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer\Data Files\Stress Fatigue Factor.xlsx';
+filename = 'Stress Fatigue Factor.xlsx';
 
 if Steel1 == 1 && Steel2 == 1 && profile14 == 1
     table = readtable(filename, 'Sheet', 1);

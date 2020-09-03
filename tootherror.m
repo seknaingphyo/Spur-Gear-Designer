@@ -1,6 +1,6 @@
 function error = tootherror(true_module, speed)
 
-filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer\Data Files\tootherrorvsmodule.xlsx';
+filename = 'tootherrorvsmodule.xlsx';
 error_max = maxtootherror(speed);
 data = readtable(filename);
 errors = interp1(data.Module,[data.Firstclass data.Carefullycut data.Precision], true_module);

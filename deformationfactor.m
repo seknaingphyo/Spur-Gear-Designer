@@ -1,6 +1,6 @@
 function C = deformationfactor(error, material1, material2, profile)
 
-filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer\Data Files\Deformationfactor.xlsx';
+filename = 'Deformationfactor.xlsx';
 d = detectImportOptions(filename);
 d.DataRange = 'A1';
 table = readtable(filename, d);
