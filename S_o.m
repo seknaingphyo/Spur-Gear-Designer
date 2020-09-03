@@ -1,10 +1,10 @@
 function strength = S_o(material)
 
-filename = 'D:\Matlab R202a\bin\Matlab Projects\Gear Designer\Spur Gear Designer\Data Files\S_o.xlsx';
+filename = 'S_o.xlsx';
 
 table = readtable(filename);
 
-idx = strncmp(material, table.Material, 9);   
+idx = strcmp(material, table.Material);   
 
 strength = table.S_o(idx);
 
