@@ -1,4 +1,4 @@
-function [true_module, dia, face_width, tot_error, F_end, F_dynamic, F_wear] = dynamiccheck(face_width, true_module, dia, K, Q, strength, y, M_t, rpm, material1, material2, profile, N, speed)
+function [true_module, dia, face_width, F_end, F_dynamic, F_wear] = dynamiccheck(face_width, true_module, dia, K, Q, strength, y, M_t, rpm, material1, material2, profile, N, speed)
 
 error_avg = tootherror(true_module, speed);
 
@@ -15,8 +15,6 @@ F_wear = dia*face_width*K*Q*10^-3;
 error1 = abs((F_dynamic - F_end)/F_dynamic);
 
 error2 = abs((F_dynamic - F_wear)/F_dynamic);
-
-tot_error = ((error1 + error2)/2)*100;
 
 while F_dynamic > F_wear && F_dynamic > F_end && error1 >= 0.11 && error2 >= 0.11
     
