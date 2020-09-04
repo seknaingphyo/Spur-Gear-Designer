@@ -10,7 +10,7 @@ F_t = M_t/((dia*10^-3)/2);
 
 F_dynamic = F_t + ((21*speed*(face_width*C) + F_t)/(21*speed + sqrt(face_width*C + F_t)));
 
-F_wear = dia*face_width*K*Q*10^-6;
+F_wear = dia*face_width*K*Q*10^-3;
                 
 error1 = abs((F_dynamic - F_end)/F_dynamic);
 
