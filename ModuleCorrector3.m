@@ -1,0 +1,45 @@
+function[N, true_module, ind_s, allowed_s] = ModuleCorrector3(dia, assum_module, y_assum, profile)
+
+allowed_s = 1/(((assum_module*10^-3)^2)*y_assum);
+N = dia/assum_module;
+y = LewisFactor(N, profile);
+ind_s = 1/(((assum_module*10^-3)^2)*y);
+diff = ind_s - allowed_s;
+percent = (diff/allowed_s)*100;
+
+while ind_s > allowed_s && diff > 0 && percent > 0
+    
+    assum_module = assum_module + 1;
+    allowed_s = 1/(((assum_module*10^-3)^2)*y_assum);
+    N = dia/assum_module;
+    
+    if rem(N, 1) ~= 0
+        assum_module = assum_module + 1;
+        N = dia/assum_module;
+    elseif rem(N, 1) == 0
+        continue
+    end
+    
+    y = LewisFactor(N, profile);
+    ind_s = 1/(((assum_module*10^-3)^2)*y);
+    
+    if allowed_s > ind_s && diff < 0 && percent > -25
+        assum_module = assum_module - 1;
+        allowed_s = 1/(((assum_module*10^-3)^2)*y_assum);
+        N = dia/assum_module;
+    
+        if rem(N, 1) ~= 0
+            assum_module = assum_module - 1;
+            N = dia/assum_module;
+        elseif rem(N, 1) == 0
+            continue
+        end    
+        y = LewisFactor(N, profile);
+        ind_s = 1/(((assum_module*10^-3)^2)*y);
+        
+    elseif allowed_s > ind_s && diff < 0 && percent <= -25
+        true_module = assum_module;
+        continue
+    end
+end
+end
