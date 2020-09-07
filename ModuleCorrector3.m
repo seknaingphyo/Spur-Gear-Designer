@@ -1,4 +1,4 @@
-function[N, true_module] = ModuleCorrector3(dia, assum_module, y_assum, profile)
+function[N, true_module, allowed_s, ind_s] = ModuleCorrector3(dia, assum_module, y_assum, profile)
 
 allowed_s = 1/(((assum_module*10^-3)^2)*y_assum);
 N = dia/assum_module;
